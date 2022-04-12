@@ -1,0 +1,155 @@
+<br>
+<div class="container">
+    <form [formGroup]="formulario">
+        <mat-card>
+            <div class="col-sm-12 text-center">
+                <h1>SQR Form</h1>
+            </div>
+            <br>
+            <mat-accordion class="example-headers-align">
+                <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Salud Mental
+                        </mat-panel-title> 
+                        <mat-panel-description>
+                            Click para empezar
+                            <mat-icon>account_circle</mat-icon>
+                          </mat-panel-description> 
+                    </mat-expansion-panel-header>
+                    <div *ngFor="let pregunta of preguntas">
+                        <div class="row mb-1 p-1 rounded checkbox-hover">
+                            <div class="col-sm-8">
+                                {{pregunta.prg}}). {{pregunta.desc}}
+                                <span *ngIf="!formValidator.validarPreguntasPrg1_20('prg' + pregunta.prg)"><i class="fas fa-times text-danger"></i></span>
+                                <span *ngIf="formValidator.validarPreguntasPrg1_20('prg' + pregunta.prg)"><i class="fas fa-check text-success"></i></span>
+                            </div>
+                            <div class="col-sm-2 text-end" *ngFor="let valor of si_no">
+                                <div class="form-check form-check-inline">
+                                    <input formControlName="prg{{pregunta.prg}}" type="radio" class="form-check-input" name="prg{{pregunta.prg}}" id="inlineRadio1" value={{valor.value}} (change)="gestionarResultadoSaludMental()">
+                                    <label class="form-check-label" for="{{valor.value}}">{{valor.desc}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="h6">
+                            Resultado Salud Mental: {{resultadoSaludMental}}
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
+                        </mat-action-row>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Psicosis
+                        </mat-panel-title> 
+                        <mat-panel-description>
+                            Click para empezar
+                            <mat-icon>assignment_turned_in</mat-icon>
+                          </mat-panel-description> 
+                    </mat-expansion-panel-header>
+                    <div *ngFor="let pregunta of preguntas2">
+                        <div class="row mb-1 p-1 rounded checkbox-hover">
+                            <div class="col-sm-8">
+                                {{pregunta.prg}}). {{pregunta.desc}}
+                                <span *ngIf="!formValidator.validarPreguntasPrg1_20('prg' + pregunta.prg)"><i class="fas fa-times text-danger"></i></span>
+                                <span *ngIf="formValidator.validarPreguntasPrg1_20('prg' + pregunta.prg)"><i class="fas fa-check text-success"></i></span>
+                            </div>
+                            <div class="col-sm-2 text-end" *ngFor="let valor of si_no">
+                                <div class="form-check form-check-inline">
+                                    <input formControlName="prg{{pregunta.prg}}" type="radio" class="form-check-input" name="prg{{pregunta.prg}}" id="inlineRadio1" value={{valor.value}} (change)="gestionarResultadoPsicosis()">
+                                    <label class="form-check-label" for="{{valor.value}}">{{valor.desc}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="h6">
+                            Resultado Psicosis: {{resultadoPsicosis}}
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="warn" (click)="prevStep()">Anterior</button>
+                            <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
+                          </mat-action-row>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Transtorno convulsivo
+                        </mat-panel-title> 
+                        <mat-panel-description>
+                            Click para empezar
+                            <mat-icon>sentiment_satisfied_alt</mat-icon>
+                        </mat-panel-description> 
+                    </mat-expansion-panel-header>
+                    <div>
+                        <div class="row mb-1 p-1 rounded checkbox-hover">
+                            <div class="col-sm-8">
+                                25).  ¿Ha tenido convulsiones, ataques o caídas al suelo con movimientos de los brazos, piernas y mordedura de la lengua o pérdida del conocimiento?
+                                <span *ngIf="!formValidator.validarPreguntasPrg1_20('prg' + '25')"><i class="fas fa-times text-danger"></i></span>
+                                <span *ngIf="formValidator.validarPreguntasPrg1_20('prg' + '25')"><i class="fas fa-check text-success"></i></span>
+                            </div>
+                            <div class="col-sm-2 text-end" *ngFor="let valor of si_no">
+                                <div class="form-check form-check-inline">
+                                    <input formControlName="prg25" type="radio" class="form-check-input" name="prg25" id="inlineRadio1" value={{valor.value}} (change)="gestionarResultadoTC()">
+                                    <label class="form-check-label" for="{{valor.value}}">{{valor.desc}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="h6">
+                            Resultado transtorno convulsivo: {{transtornoConvulsivo}}
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="warn" (click)="prevStep()">Anterior</button>
+                            <button mat-button color="primary" (click)="nextStep()">Siguiente</button>
+                          </mat-action-row>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Problemas con alcohol
+                        </mat-panel-title> 
+                        <mat-panel-description>
+                            Click para empezar
+                            <mat-icon>local_bar</mat-icon>
+                          </mat-panel-description> 
+                    </mat-expansion-panel-header>
+                    <div *ngFor="let pregunta of preguntas3">
+                        <div class="row mb-1 p-1 rounded checkbox-hover">
+                            <div class="col-sm-8">
+                                {{pregunta.prg}}). {{pregunta.desc}}
+                                <span *ngIf="!formValidator.validarPreguntasPrg1_20('prg' + pregunta.prg)"><i class="fas fa-times text-danger"></i></span>
+                                <span *ngIf="formValidator.validarPreguntasPrg1_20('prg' + pregunta.prg)"><i class="fas fa-check text-success"></i></span>
+                            </div>
+                            <div class="col-sm-2 text-end" *ngFor="let valor of si_no">
+                                <div class="form-check form-check-inline">
+                                    <input formControlName="prg{{pregunta.prg}}" type="radio" class="form-check-input" name="prg{{pregunta.prg}}" id="inlineRadio1" value={{valor.value}} (change)="gestionarProblemasAlcohol()">
+                                    <label class="form-check-label" for="{{valor.value}}">{{valor.desc}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="h6">
+                            Resultado problemas con alcohol: {{problemasAlcohol}}
+                        </div>
+                        <mat-action-row>
+                            <button mat-button color="warn" (click)="prevStep()">Anterior</button>
+                          </mat-action-row>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card>
+    </form>
+</div>

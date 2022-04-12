@@ -1,0 +1,22 @@
+[
+    {"prg": "1", "desc": "¿Tiene dolores de cabeza frecuentes?"},
+    {"prg": "2", "desc": "¿Tiene mal apetito?"},
+    {"prg": "3", "desc": "¿Duerme mal?"},
+    {"prg": "4", "desc": "¿Se asusta con facilidad?"},
+    {"prg": "5", "desc": "¿Sufre de temblor de manos?"},
+    {"prg": "6", "desc": "¿Se siente nervioso, tenso o aburrido? "},
+    {"prg": "7", "desc": "¿Sufre de mala digestión?"},
+    {"prg": "8", "desc": "¿No puede pensar con claridad?"},
+    {"prg": "9", "desc": "¿Se siente triste"},
+    {"prg": "10", "desc": "¿Llora usted con mucha frecuencia?"},
+    {"prg": "11", "desc": "Tiene dificultad en disfrutar de sus actividades diarias?"},
+    {"prg": "12", "desc": "Tiene dificultades para tomar decisiones?"},
+    {"prg": "13", "desc": "Tiene dificultad para hacer su trabajo? (¿sufre usted con su trabajo?)"}, 
+    {"prg": "14", "desc": "¿Es incapaz de desempeñar un papel útil en su vida?"},
+    {"prg": "15", "desc": "¿Ha perdido interés en las cosas?"},
+    {"prg": "16", "desc": "¿Siente que usted es una persona inútil?"},
+    {"prg": "17", "desc": "¿Ha tenido la idea de acabar con la vida?"},
+    {"prg": "18", "desc": "¿Se siente cansado todo el tiempo?"},
+    {"prg": "19", "desc": "¿Tiene sensaciones desagradables en su estómago?"},
+    {"prg": "20", "desc": "¿Se cansa con facilidad?"}
+]

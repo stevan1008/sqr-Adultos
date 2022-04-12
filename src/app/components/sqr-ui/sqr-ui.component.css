@@ -1,0 +1,31 @@
+.checkbox-hover {
+    background-color: #fff;
+  }
+  
+.checkbox-hover:hover {
+  background-color: #F2F4F4;
+}
+
+input[type=radio] {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.va-sub {
+  vertical-align: sub;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
